@@ -1,0 +1,108 @@
+{
+  "aktualizacja": "2020-03-26T02:00:00.000Z",
+  "suma": 10,
+  "powiaty": [
+    {
+      "kod": "2062",
+      "nazwa": "powiat Łomża",
+      "potwierdzone": 0,
+      "lista": []
+    },
+    {
+      "kod": "2006",
+      "nazwa": "powiat kolneński",
+      "potwierdzone": 0,
+      "lista": []
+    },
+    {
+      "kod": "2003",
+      "nazwa": "powiat bielski",
+      "potwierdzone": 0,
+      "lista": []
+    },
+    {
+      "kod": "2012",
+      "nazwa": "powiat suwalski",
+      "potwierdzone": 0,
+      "lista": []
+    },
+    {
+      "kod": "2011",
+      "nazwa": "powiat sokólski",
+      "potwierdzone": 0,
+      "lista": []
+    },
+    {
+      "kod": "2004",
+      "nazwa": "powiat grajewski",
+      "potwierdzone": 0,
+      "lista": []
+    },
+    {
+      "kod": "2005",
+      "nazwa": "powiat hajnowski",
+      "potwierdzone": 0,
+      "lista": []
+    },
+    {
+      "kod": "2063",
+      "nazwa": "powiat Suwałki",
+      "potwierdzone": 0,
+      "lista": []
+    },
+    {
+      "kod": "2010",
+      "nazwa": "powiat siemiatycki",
+      "potwierdzone": 0,
+      "lista": []
+    },
+    {
+      "kod": "2002",
+      "nazwa": "powiat białostocki",
+      "potwierdzone": 5,
+      "lista": []
+    },
+    {
+      "kod": "2001",
+      "nazwa": "powiat augustowski",
+      "potwierdzone": 0,
+      "lista": []
+    },
+    {
+      "kod": "2013",
+      "nazwa": "powiat wysokomazowiecki",
+      "potwierdzone": 0,
+      "lista": []
+    },
+    {
+      "kod": "2014",
+      "nazwa": "powiat zambrowski",
+      "potwierdzone": 0,
+      "lista": []
+    },
+    {
+      "kod": "2008",
+      "nazwa": "powiat moniecki",
+      "potwierdzone": 0,
+      "lista": []
+    },
+    {
+      "kod": "2009",
+      "nazwa": "powiat sejneński",
+      "potwierdzone": 0,
+      "lista": []
+    },
+    {
+      "kod": "2007",
+      "nazwa": "powiat łomżyński",
+      "potwierdzone": 5,
+      "lista": []
+    },
+    {
+      "kod": "2061",
+      "nazwa": "powiat Białystok",
+      "potwierdzone": 0,
+      "lista": []
+    }
+  ]
+}
