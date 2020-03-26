@@ -1,13 +1,12 @@
 import React from 'react';
 import Moment from 'moment';
 import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import Badge from 'react-bootstrap/Badge';
 import './CasesList.css';
 
 const CasesList = ({ cases }) => {
   return (
-    <Col lg={4} className='cases-list'>
+    <Col md={4} className='cases-list'>
       <div className='counter'>
         <h3>
           <Badge pill variant='dark' className='cases-pill'>
@@ -19,20 +18,16 @@ const CasesList = ({ cases }) => {
       <div className='cases-update'>
         <p>Ostatnia aktualizacja: {Moment(cases.aktualizacja).format('DD.MM.YYYY HH:mm')}</p>
       </div>
-      <Col className='list'>
+      <div className='list'>
         {cases.powiaty &&
           cases.powiaty.length &&
           cases.powiaty.map((powiat, index) => (
-            <Row className='list-item' key={powiat.kod}>
-              <Col md={10} className='list-item-title'>
-                {powiat.nazwa}
-              </Col>
-              <Col md={2} className='list-item-value'>
-                {powiat.potwierdzone}
-              </Col>
-            </Row>
+            <div className='list-item d-flex justify-content-between' key={powiat.kod}>
+              <div className='list-item-title'>{powiat.nazwa}</div>
+              <div className='list-item-value'>{powiat.potwierdzone}</div>
+            </div>
           ))}
-      </Col>
+      </div>
     </Col>
   );
 };

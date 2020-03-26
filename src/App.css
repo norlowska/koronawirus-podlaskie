@@ -1,8 +1,7 @@
-.App {
+/* .App {
   height: 100vh;
-}
+} */
 
 .content {
-  height: calc(100% - 56px);
-  padding: 0;
+  height: calc(100vh - 56px);
 }

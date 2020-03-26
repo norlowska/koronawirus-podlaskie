@@ -2,7 +2,8 @@ nav {
   background-color: #ed1c24;
 }
 
-header {
+header .col {
+  padding: 0;
   box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.35);
 }
 

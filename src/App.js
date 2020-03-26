@@ -16,13 +16,15 @@ function App() {
   }, []);
 
   return (
-    <div className='App'>
+    <>
       <Header></Header>
-      <Container fluid className='content'>
+      <Container fluid className='App'>
+        <Row className='content'>
         <CasesList cases={cases}></CasesList>
         <CasesMap cases={cases} county={countyLayer}></CasesMap>
+        </Row>
       </Container>
-    </div>
+    </>
   );
 }
 
