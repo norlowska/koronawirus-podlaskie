@@ -1,11 +1,11 @@
 {
-  "update": "2020-03-26T02:00:00.000Z",
-  "sum": 10,
+  "update": "2020-03-26T20:00:00.000Z",
+  "sum": 13,
   "counties": [
     {
       "code": "2062",
       "name": "powiat Łomża",
-      "confirmedCases": 0,
+      "confirmedCases": 1,
       "casesList": [],
       "location": [53.173119202640635, 22.04279731097456]
     },
@@ -110,7 +110,7 @@
     {
       "code": "2007",
       "name": "powiat łomżyński",
-      "confirmedCases": 5,
+      "confirmedCases": 7,
       "casesList": [],
       "location": [53.18793333608315, 21.837381580258647]
     },
