@@ -8,3 +8,38 @@
 .cases-list::-webkit-scrollbar {
   display: none;
 }
+
+.counter,
+.cases-update {
+  margin-bottom: 20px;
+}
+
+.counter h3 {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.cases-pill {
+  background-color: rgba(237, 28, 36, 0.8);
+  margin-right: 10px;
+}
+
+.list {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.list > .list-item:nth-child(odd) {
+  background-color: #f7f7f7;
+}
+
+.list-item {
+  padding: 15px 0;
+}
+
+.list .list-item:hover {
+  transform: scale(1.05);
+  z-index: 100;
+  background-color: rgba(237, 28, 36, 0.8);
+  color: rgb(255, 255, 255);
+  transition: 0.5s;
+}
