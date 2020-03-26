@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import CasesJSON from './przypadki.json';
+import Counties from './powiaty-podlasie.json';
 import './App.css';
 
 function App() {
   const [cases, setCases] = useState([]);
+  const [countyLayer, setCountyLayer] = useState();
 
   useEffect(() => {
     setCases(CasesJSON);
+    setCountyLayer(Counties);
   }, []);
 
   return (
