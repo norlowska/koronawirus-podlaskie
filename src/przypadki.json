@@ -1,108 +1,125 @@
 {
-  "aktualizacja": "2020-03-26T02:00:00.000Z",
-  "suma": 10,
-  "powiaty": [
+  "update": "2020-03-26T02:00:00.000Z",
+  "sum": 10,
+  "counties": [
     {
-      "kod": "2062",
-      "nazwa": "powiat Łomża",
-      "potwierdzone": 0,
-      "lista": []
+      "code": "2062",
+      "name": "powiat Łomża",
+      "confirmedCases": 0,
+      "casesList": [],
+      "location": [53.173119202640635, 22.04279731097456]
     },
     {
-      "kod": "2006",
-      "nazwa": "powiat kolneński",
-      "potwierdzone": 0,
-      "lista": []
+      "code": "2006",
+      "name": "powiat kolneński",
+      "confirmedCases": 0,
+      "casesList": [],
+      "location": [53.40625729970218, 21.922558411061207]
     },
     {
-      "kod": "2003",
-      "nazwa": "powiat bielski",
-      "potwierdzone": 0,
-      "lista": []
+      "code": "2003",
+      "name": "powiat bielski",
+      "confirmedCases": 0,
+      "casesList": [],
+      "location": [52.75291861005523, 23.042938162978782]
     },
     {
-      "kod": "2012",
-      "nazwa": "powiat suwalski",
-      "potwierdzone": 0,
-      "lista": []
+      "code": "2012",
+      "name": "powiat suwalski",
+      "confirmedCases": 0,
+      "casesList": [],
+      "location": [54.21867900543369, 22.82361500621699]
     },
     {
-      "kod": "2011",
-      "nazwa": "powiat sokólski",
-      "potwierdzone": 0,
-      "lista": []
+      "code": "2011",
+      "name": "powiat sokólski",
+      "confirmedCases": 0,
+      "casesList": [],
+      "location": [53.4078946079025, 23.513334974398784]
     },
     {
-      "kod": "2004",
-      "nazwa": "powiat grajewski",
-      "potwierdzone": 0,
-      "lista": []
+      "code": "2004",
+      "name": "powiat grajewski",
+      "confirmedCases": 0,
+      "casesList": [],
+      "location": [53.592504809039376, 22.515941762097885]
     },
     {
-      "kod": "2005",
-      "nazwa": "powiat hajnowski",
-      "potwierdzone": 0,
-      "lista": []
+      "code": "2005",
+      "name": "powiat hajnowski",
+      "confirmedCases": 0,
+      "casesList": [],
+      "location": [52.73296550376907, 23.570846084869828]
     },
     {
-      "kod": "2063",
-      "nazwa": "powiat Suwałki",
-      "potwierdzone": 0,
-      "lista": []
+      "code": "2063",
+      "name": "powiat Suwałki",
+      "confirmedCases": 0,
+      "casesList": [],
+      "location": [54.09806018306312, 22.92240311488908]
     },
     {
-      "kod": "2010",
-      "nazwa": "powiat siemiatycki",
-      "potwierdzone": 0,
-      "lista": []
+      "code": "2010",
+      "name": "powiat siemiatycki",
+      "confirmedCases": 0,
+      "casesList": [],
+      "location": [52.496159531097106, 22.867089221967028]
     },
     {
-      "kod": "2002",
-      "nazwa": "powiat białostocki",
-      "potwierdzone": 5,
-      "lista": []
+      "code": "2002",
+      "name": "powiat białostocki",
+      "confirmedCases": 5,
+      "casesList": [],
+      "location": [53.10391891198363, 23.504541633134526]
     },
     {
-      "kod": "2001",
-      "nazwa": "powiat augustowski",
-      "potwierdzone": 0,
-      "lista": []
+      "code": "2001",
+      "name": "powiat augustowski",
+      "confirmedCases": 0,
+      "casesList": [],
+      "location": [53.84280478554841, 22.95812243103208]
     },
     {
-      "kod": "2013",
-      "nazwa": "powiat wysokomazowiecki",
-      "potwierdzone": 0,
-      "lista": []
+      "code": "2013",
+      "name": "powiat wysokomazowiecki",
+      "confirmedCases": 0,
+      "casesList": [],
+      "location": [52.872445481488825, 22.52978678549231]
     },
     {
-      "kod": "2014",
-      "nazwa": "powiat zambrowski",
-      "potwierdzone": 0,
-      "lista": []
+      "code": "2014",
+      "name": "powiat zambrowski",
+      "confirmedCases": 0,
+      "casesList": [],
+      "location": [52.95856614537994, 22.241016592930176]
     },
     {
-      "kod": "2008",
-      "nazwa": "powiat moniecki",
-      "potwierdzone": 0,
-      "lista": []
+      "code": "2008",
+      "name": "powiat moniecki",
+      "confirmedCases": 0,
+      "casesList": [],
+      "location": [53.40625729970218, 22.777074358790067]
     },
     {
-      "kod": "2009",
-      "nazwa": "powiat sejneński",
-      "potwierdzone": 0,
-      "lista": []
+      "code": "2009",
+      "name": "powiat sejneński",
+      "confirmedCases": 0,
+      "casesList": [],
+      "location": [54.10450206317112, 23.34828726890187]
     },
     {
-      "kod": "2007",
-      "nazwa": "powiat łomżyński",
-      "potwierdzone": 5,
-      "lista": []
+      "code": "2007",
+      "name": "powiat łomżyński",
+      "confirmedCases": 5,
+      "casesList": [],
+      "location": [53.18793333608315, 21.837381580258647]
     },
     {
-      "kod": "2061",
-      "nazwa": "powiat Białystok",
-      "potwierdzone": 0,
-      "lista": []
+      "code": "2061",
+      "name": "powiat Białystok",
+      "confirmedCases": 0,
+      "casesList": [],
+      "location": [53.128646098440754, 23.161637092375315]
     }
   ]
 }
