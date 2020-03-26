@@ -8,14 +8,14 @@ import Counties from './powiaty-podlasie.json';
 import './App.css';
 
 function App() {
-  const [cases, setCases] = useState([]);
+  const [cases, setCases] = useState({});
   const [countyLayer, setCountyLayer] = useState();
 
   useEffect(() => {
-    CasesJSON.powiaty.sort(compareValues('potwierdzone', 'desc'));
+    CasesJSON.counties.sort(compareValues('confirmedCases', 'desc'));
     setCases(CasesJSON);
     setCountyLayer(Counties);
-  }, []);
+  }, [cases]);
 
   return (
     <>
@@ -23,7 +23,7 @@ function App() {
       <Container fluid className='App'>
         <Row className='content'>
           <CasesList cases={cases}></CasesList>
-          <CasesMap data={cases.powiaty} counties={countyLayer}></CasesMap>
+          <CasesMap data={cases.counties} counties={countyLayer}></CasesMap>
         </Row>
       </Container>
     </>

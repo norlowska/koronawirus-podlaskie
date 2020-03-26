@@ -5,3 +5,19 @@
 .content {
   height: calc(100vh - 56px);
 }
+
+.circle-marker {
+  background: rgba(237, 28, 36, 0.85);
+  border-radius: 50%;
+  color: white;
+  font-size: 15px;
+  box-shadow: 4px 4px 3px grey;
+  -moz-box-shadow: 4px 4px 3px grey;
+  -webkit-box-shadow: 4px 4px 3px grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  width: 26px;
+  font-weight: normal;
+}
