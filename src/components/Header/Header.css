@@ -1,0 +1,16 @@
+nav {
+  background-color: #ed1c24;
+}
+
+header {
+  box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.35);
+}
+
+.navbar .nav-right .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar .nav-right .nav-link:focus,
+.navbar .nav-right .nav-link:hover {
+  color: rgb(255, 255, 255);
+}
