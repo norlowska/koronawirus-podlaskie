@@ -23,7 +23,7 @@ function App() {
       <Container fluid className='App'>
         <Row className='content'>
           <CasesList cases={cases}></CasesList>
-          <CasesMap cases={cases} county={countyLayer}></CasesMap>
+          <CasesMap data={cases.powiaty} counties={countyLayer}></CasesMap>
         </Row>
       </Container>
     </>
