@@ -1,0 +1,10 @@
+.cases-list {
+  height: 100%;
+  overflow-y: scroll;
+  padding: 20px 30px;
+  -ms-overflow-style: none;
+}
+
+.cases-list::-webkit-scrollbar {
+  display: none;
+}
