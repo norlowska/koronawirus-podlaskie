@@ -4,6 +4,12 @@
   padding: 20px 30px;
 }
 
+@media (max-width: 767px) {
+  .cases-list {
+    height: 40%;
+  }
+}
+
 .counter,
 .cases-update {
   margin-bottom: 20px;

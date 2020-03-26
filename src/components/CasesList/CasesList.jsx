@@ -1,7 +1,6 @@
 import React from 'react';
 import Moment from 'moment';
 import Col from 'react-bootstrap/Col';
-import Badge from 'react-bootstrap/Badge';
 import './CasesList.css';
 
 const CasesList = ({ cases }) => {

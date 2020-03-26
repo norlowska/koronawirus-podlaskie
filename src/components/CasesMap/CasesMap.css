@@ -8,3 +8,9 @@
   height: 100%;
   width: 100%;
 }
+
+@media (max-width: 767px) {
+  .cases-map {
+    height: 60%;
+  }
+}

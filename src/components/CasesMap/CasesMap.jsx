@@ -29,7 +29,7 @@ const CasesMap = ({ data, counties }) => {
 
   return (
     <Col md={8} className='cases-map px-0'>
-      <LeafletMap center={position} zoom={zoom} maxZoom={11} minZoom={8} onclick={handleClick}>
+      <LeafletMap center={position} zoom={zoom} maxZoom={11} minZoom={7} onclick={handleClick}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
@@ -44,7 +44,7 @@ const CasesMap = ({ data, counties }) => {
           })}
         />
 
-        <MarkerClusterGroup maxClusterRadius={30}>
+        <MarkerClusterGroup maxClusterRadius={25}>
           {data &&
             data.map(({ name, code, location, confirmedCases }) =>
               confirmedCases > 0 ? (
