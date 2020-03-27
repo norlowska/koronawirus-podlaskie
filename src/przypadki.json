@@ -1,6 +1,6 @@
 {
-  "update": "2020-03-26T20:00:00.000Z",
-  "sum": 13,
+  "update": "2020-03-27T08:00:00.000Z",
+  "sum": 16,
   "counties": [
     {
       "code": "2062",
@@ -110,14 +110,14 @@
     {
       "code": "2007",
       "name": "powiat łomżyński",
-      "confirmedCases": 7,
+      "confirmedCases": 9,
       "casesList": [],
       "location": [53.18793333608315, 21.837381580258647]
     },
     {
       "code": "2061",
       "name": "powiat Białystok",
-      "confirmedCases": 0,
+      "confirmedCases": 1,
       "casesList": [],
       "location": [53.128646098440754, 23.161637092375315]
     }
