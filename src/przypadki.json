@@ -1,6 +1,6 @@
 {
-  "update": "2020-03-27T08:00:00.000Z",
-  "sum": 16,
+  "update": "2020-03-27T13:00:00.000Z",
+  "sum": 17,
   "counties": [
     {
       "code": "2062",
@@ -117,7 +117,7 @@
     {
       "code": "2061",
       "name": "powiat Białystok",
-      "confirmedCases": 1,
+      "confirmedCases": 2,
       "casesList": [],
       "location": [53.128646098440754, 23.161637092375315]
     }
