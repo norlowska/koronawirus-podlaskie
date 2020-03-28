@@ -1,6 +1,6 @@
 {
-  "update": "2020-03-28T08:30:00.000Z",
-  "sum": 18,
+  "update": "2020-03-28T13:30:00.000Z",
+  "sum": 26,
   "counties": [
     {
       "code": "2062",
@@ -68,14 +68,14 @@
     {
       "code": "2002",
       "name": "powiat białostocki",
-      "confirmedCases": 6,
+      "confirmedCases": 8,
       "casesList": [],
       "location": [53.10391891198363, 23.504541633134526]
     },
     {
       "code": "2001",
       "name": "powiat augustowski",
-      "confirmedCases": 0,
+      "confirmedCases": 1,
       "casesList": [],
       "location": [53.84280478554841, 22.95812243103208]
     },
@@ -117,7 +117,7 @@
     {
       "code": "2061",
       "name": "powiat Białystok",
-      "confirmedCases": 2,
+      "confirmedCases": 7,
       "casesList": [],
       "location": [53.128646098440754, 23.161637092375315]
     }
