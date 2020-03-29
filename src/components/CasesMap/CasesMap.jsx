@@ -34,7 +34,7 @@ const CasesMap = () => {
     console.log(lat + ', ' + lng);
   };
 
-  return (
+  return countiesData ? (
     <Col md={8} className='cases-map px-0'>
       <LeafletMap center={position} zoom={zoom} maxZoom={11} minZoom={7} onclick={handleClick}>
         <TileLayer
@@ -67,7 +67,7 @@ const CasesMap = () => {
         </MarkerClusterGroup>
       </LeafletMap>
     </Col>
-  );
+  ) : null;
 };
 
 export default CasesMap;

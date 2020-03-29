@@ -1,13 +1,14 @@
 import React, { useContext, useEffect } from 'react';
 import Moment from 'moment';
 import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner';
 import { DataContext } from '../../contexts/DataContext';
 import './CasesList.css';
 
 const CasesList = () => {
   const data = useContext(DataContext);
 
-  return (
+  return data.counties ? (
     <Col md={4} className='cases-list'>
       <div className='counter'>
         <h3>
@@ -16,7 +17,10 @@ const CasesList = () => {
         </h3>
       </div>
       <div className='cases-update'>
-        <p>Ostatnia aktualizacja: {Moment(data.update).format('DD.MM.YYYY HH:mm')}</p>
+        <p>
+          Ostatnia aktualizacja:{' '}
+          {data.update ? Moment(data.update).format('DD.MM.YYYY HH:mm') : null}
+        </p>
       </div>
       <div className='list'>
         {data.counties &&
@@ -28,6 +32,12 @@ const CasesList = () => {
             </div>
           ))}
       </div>
+    </Col>
+  ) : (
+    <Col className='d-flex justify-content-center align-items-center'>
+      <Spinner animation='border' role='status'>
+        <span className='sr-only'>Loading...</span>
+      </Spinner>
     </Col>
   );
 };
