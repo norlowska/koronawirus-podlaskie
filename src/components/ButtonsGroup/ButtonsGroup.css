@@ -1,0 +1,41 @@
+.buttons-container {
+  position: fixed;
+  z-index: 500;
+  bottom: 30px;
+  right: 20px;
+}
+
+.buttons-container .btn {
+  background-color: rgb(237, 28, 36);
+  border-color: rgb(237, 28, 36);
+  padding: 4px 10px;
+  font-size: 15px;
+  margin-right: 15px;
+}
+
+.buttons-container .btn:hover,
+.buttons-container .btn:focus {
+  background-color: #bb0a02;
+  border-color: #bb0a02;
+  outline: none;
+  padding: 4px 10px;
+  font-size: 15px;
+  margin-right: 15px;
+}
+
+.buttons-container .btn:last-child {
+  margin-right: 0;
+}
+
+.modal-dialog {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 61px);
+}
+
+.contact-mail,
+.repo-link {
+  margin-left: 5px;
+}
