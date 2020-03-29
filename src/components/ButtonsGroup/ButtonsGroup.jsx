@@ -37,8 +37,8 @@ const ButtonsGroup = () => {
           {/* <p>Logo pochodzi z Icons8</p> */}
           <p>
             Jeśli znajdziesz jakiś błąd lub chcesz zgłosić sugestię, napisz:
-            <a href='mailto:kontakt@koronawirus-podlaskie.pl' className='contact-mail'>
-              kontakt@koronawirus-podlaskie.pl
+            <a href='mailto:kontakt@norlowska.com' className='contact-mail'>
+              kontakt@norlowska.com
             </a>
           </p>
           <p>
