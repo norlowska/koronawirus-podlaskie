@@ -21,16 +21,12 @@
   display: flex;
 }
 
-.counter-value {
-  margin-right: 10px;
-}
-
 .list {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
 }
 
 .list > .list-item:nth-child(odd) {
-  background-color: #f7f7f7;
+  background-color: #eaeaea;
 }
 
 .list-item {
@@ -38,7 +34,18 @@
 }
 
 .list .list-item:hover {
-  background-color: rgba(237, 28, 36, 0.8);
-  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.25);
   transition: 0.5s;
+}
+
+.count-badge {
+  background: rgba(237, 28, 36, 0.85);
+  font-weight: normal;
+  letter-spacing: 1px;
+  font-size: 16px;
+  padding: 4px 8px;
+}
+
+.counter .count-badge {
+  margin-right: 8px;
 }

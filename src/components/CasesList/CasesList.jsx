@@ -1,6 +1,7 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import Moment from 'moment';
 import Col from 'react-bootstrap/Col';
+import Badge from 'react-bootstrap/Badge';
 import Spinner from 'react-bootstrap/Spinner';
 import { DataContext } from '../../contexts/DataContext';
 import './CasesList.css';
@@ -12,7 +13,9 @@ const CasesList = () => {
     <Col md={4} className='cases-list'>
       <div className='counter'>
         <h3>
-          <div className='circle-marker counter-value'>{data.sum}</div>
+          <Badge variant='secondary' className='count-badge'>
+            {data.sum}
+          </Badge>
           zakażeń
         </h3>
       </div>
@@ -28,7 +31,9 @@ const CasesList = () => {
           data.counties.map(county => (
             <div className='list-item d-flex justify-content-between' key={county.code}>
               <div className='list-item-title'>{county.name}</div>
-              <div className='list-item-value circle-marker'>{county.confirmedCases}</div>
+              <Badge variant='secondary' className='count-badge'>
+                {county.confirmedCases}
+              </Badge>
             </div>
           ))}
       </div>
