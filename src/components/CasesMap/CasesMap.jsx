@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Col from 'react-bootstrap/Col';
 import { divIcon } from 'leaflet';
 import { Map as LeafletMap, TileLayer, GeoJSON, Marker } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
+import { DataContext } from '../../contexts/DataContext';
+import CountiesLayer from '../../powiaty-podlasie.json';
 import './CasesMap.css';
 
 const createMarkerIcon = confirmedCases => {
@@ -13,12 +15,17 @@ const createMarkerIcon = confirmedCases => {
   });
 };
 
-const CasesMap = ({ data, counties }) => {
+const CasesMap = () => {
   const position = [53.275, 23.114];
   const zoom = 8;
 
+  const countiesData = useContext(DataContext).counties;
+
   const hasConfirmedCases = code => {
-    const county = data.find(countyData => countyData.code === code.toString());
+    if (!countiesData) {
+      return false;
+    }
+    const county = countiesData.find(countyData => countyData.code === code.toString());
     return county.confirmedCases > 0;
   };
 
@@ -35,7 +42,7 @@ const CasesMap = ({ data, counties }) => {
           url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
         />
         <GeoJSON
-          data={counties}
+          data={CountiesLayer}
           style={feature => ({
             color: '#333',
             fillColor: hasConfirmedCases(feature.properties.JPT_KOD_JE) ? '#ed1c24' : 'transparent',
@@ -45,8 +52,8 @@ const CasesMap = ({ data, counties }) => {
         />
 
         <MarkerClusterGroup maxClusterRadius={25}>
-          {data &&
-            data.map(({ name, code, location, confirmedCases }) =>
+          {countiesData &&
+            countiesData.map(({ name, code, location, confirmedCases }) =>
               confirmedCases > 0 ? (
                 <Marker
                   key={`marker-${code}`}
