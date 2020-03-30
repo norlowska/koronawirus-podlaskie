@@ -69,6 +69,7 @@ const CasesMap = () => {
                   icon={createMarkerIcon(county.confirmedCases)}
                   onMouseOver={() => setActiveCounty(county)}
                   onMouseOut={() => setActiveCounty(null)}
+                  onClick={() => setActiveCounty(county)}
                 ></Marker>
               ) : (
                 undefined
