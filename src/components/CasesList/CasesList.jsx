@@ -1,35 +1,54 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import Moment from 'moment';
 import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 import Spinner from 'react-bootstrap/Spinner';
-import { DataContext } from '../../contexts/DataContext';
+import { useData } from '../../contexts/DataContext';
 import './CasesList.css';
 
 const CasesList = () => {
-  const data = useContext(DataContext);
+  const [clicked, setClicked] = useState(false);
+  const { counties, sum, update, setSelectedCounty } = useData();
 
-  return data.counties ? (
+  const handleMouseEnter = county => {
+    setSelectedCounty(county);
+    setClicked(false);
+  };
+
+  const handleMouseLeave = county => {
+    if (clicked) return;
+    setSelectedCounty(null);
+  };
+
+  const handleOnClick = county => {
+    setSelectedCounty(county);
+    setClicked(true);
+  };
+
+  return counties ? (
     <Col md={4} className='cases-list'>
       <div className='counter'>
         <h3>
           <Badge variant='secondary' className='count-badge'>
-            {data.sum}
+            {sum}
           </Badge>
           zakażeń
         </h3>
       </div>
       <div className='cases-update'>
-        <p>
-          Ostatnia aktualizacja:{' '}
-          {data.update ? Moment(data.update).format('DD.MM.YYYY HH:mm') : null}
-        </p>
+        <p>Ostatnia aktualizacja: {update ? Moment(update).format('DD.MM.YYYY HH:mm') : null}</p>
       </div>
       <div className='list'>
-        {data.counties &&
-          data.counties.length &&
-          data.counties.map(county => (
-            <div className='list-item d-flex justify-content-between' key={county.code}>
+        {counties &&
+          counties.length &&
+          counties.map(county => (
+            <div
+              className='list-item d-flex justify-content-between'
+              key={county.code}
+              onMouseEnter={() => handleMouseEnter(county)}
+              onMouseLeave={() => handleMouseLeave(county)}
+              onClick={() => handleOnClick(county)}
+            >
               <div className='list-item-title'>{county.name}</div>
               <Badge variant='secondary' className='count-badge'>
                 {county.confirmedCases}

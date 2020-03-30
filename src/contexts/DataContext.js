@@ -1,12 +1,10 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import { config } from '../firebase';
 import firebase from 'firebase/app';
 import 'firebase/database';
 import compareValues from '../helpers/compareValues';
 
 firebase.initializeApp(config);
-
-// const database = firebase.database().
 
 const rootRef = firebase.database().ref('/');
 const updateRef = firebase.database().ref('/update');
@@ -39,4 +37,8 @@ export const DataProvider = props => {
       {props.children}
     </DataContext.Provider>
   );
+};
+
+export const useData = () => {
+  return useContext(DataContext);
 };

@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Col from 'react-bootstrap/Col';
 import { divIcon } from 'leaflet';
-import { Map as LeafletMap, TileLayer, GeoJSON, Marker } from 'react-leaflet';
+import { Map as LeafletMap, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-import { DataContext } from '../../contexts/DataContext';
+import { useData } from '../../contexts/DataContext';
 import CountiesLayer from '../../powiaty-podlasie.json';
 import './CasesMap.css';
 
@@ -18,8 +18,7 @@ const createMarkerIcon = confirmedCases => {
 const CasesMap = () => {
   const position = [53.275, 23.114];
   const zoom = 8;
-
-  const countiesData = useContext(DataContext).counties;
+  const { counties: countiesData, selectedCounty, setSelectedCounty } = useData();
 
   const hasConfirmedCases = code => {
     if (!countiesData) {
@@ -32,6 +31,10 @@ const CasesMap = () => {
   const handleClick = e => {
     const { lat, lng } = e.latlng;
     console.log(lat + ', ' + lng);
+  };
+
+  const setActiveCounty = county => {
+    setSelectedCounty(county);
   };
 
   return countiesData ? (
@@ -53,17 +56,35 @@ const CasesMap = () => {
 
         <MarkerClusterGroup maxClusterRadius={25}>
           {countiesData &&
-            countiesData.map(({ name, code, location, confirmedCases }) =>
-              confirmedCases > 0 ? (
+            countiesData.map(county =>
+              county.confirmedCases > 0 ? (
                 <Marker
-                  key={`marker-${code}`}
-                  position={location}
-                  icon={createMarkerIcon(confirmedCases)}
-                />
+                  key={`marker-${county.code}`}
+                  position={county.location}
+                  icon={createMarkerIcon(county.confirmedCases)}
+                  onMouseOver={() => setActiveCounty(county)}
+                  onMouseOut={() => setActiveCounty(null)}
+                ></Marker>
               ) : (
                 undefined
               )
             )}
+
+          {selectedCounty && (
+            <Popup
+              className='county-info-popup'
+              position={selectedCounty.location}
+              onClose={() => setActiveCounty(null)}
+            >
+              <div>
+                <h4>{selectedCounty.name}</h4>
+                <p>
+                  Potwierdzone przypadki:{' '}
+                  <span className='popup-confirmed-cases'>{selectedCounty.confirmedCases}</span>
+                </p>
+              </div>
+            </Popup>
+          )}
         </MarkerClusterGroup>
       </LeafletMap>
     </Col>
