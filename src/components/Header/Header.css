@@ -1,17 +1,30 @@
-nav {
-  background-color: #ed1c24;
-}
-
-header .col {
-  padding: 0;
+.app-bar {
+  background-color: rgb(237, 28, 36);
+  color: #fff;
+  padding: 10px 15px;
   box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.35);
 }
 
-.navbar .nav-right .nav-link {
-  color: rgba(255, 255, 255, 0.8);
+.app-bar a {
+  color: #fff;
 }
 
-.navbar .nav-right .nav-link:focus,
-.navbar .nav-right .nav-link:hover {
-  color: rgb(255, 255, 255);
+.app-bar a:hover {
+  text-decoration: none;
+}
+
+.app-bar a:active,
+.app-bar a:focus {
+  outline: none;
+}
+
+.logo-container h3 {
+  letter-spacing: 0.045em;
+  text-shadow: 1px 2px 2px #000;
+}
+
+@media (max-width: 768px) {
+  .logo-container h3 {
+    font-size: 21px;
+  }
 }

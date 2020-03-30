@@ -4,25 +4,21 @@
   padding: 20px 30px;
 }
 
-@media (max-width: 767px) {
-  .cases-list {
-    height: 40%;
-  }
-}
-
-.counter,
 .cases-update {
   margin-bottom: 20px;
+  color: gray;
 }
 
-.counter h3 {
-  font-size: 20px;
-  font-weight: normal;
-  display: flex;
-}
+@media (max-width: 767px) {
+  .cases-list {
+    height: auto;
+    overflow: auto;
+  }
 
-.counter-value {
-  margin-right: 10px;
+  .cases-update,
+  .cases-update p {
+    margin-bottom: 0;
+  }
 }
 
 .list {
@@ -30,15 +26,23 @@
 }
 
 .list > .list-item:nth-child(odd) {
-  background-color: #f7f7f7;
+  background-color: #eaeaea;
 }
 
 .list-item {
   padding: 15px;
 }
 
-.list .list-item:hover {
-  background-color: rgba(237, 28, 36, 0.8);
-  color: rgb(255, 255, 255);
+.list .list-item:hover,
+.county-active {
+  background-color: rgba(0, 0, 0, 0.25);
   transition: 0.5s;
+}
+
+.count-badge {
+  background: rgba(237, 28, 36, 0.85);
+  font-weight: normal;
+  letter-spacing: 1px;
+  font-size: 16px;
+  padding: 4px 8px;
 }

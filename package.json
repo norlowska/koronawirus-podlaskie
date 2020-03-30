@@ -7,6 +7,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
+    "firebase": "^7.13.1",
     "leaflet": "^1.6.0",
     "leaflet.markercluster": "^1.4.1",
     "moment": "^2.24.0",
@@ -15,6 +16,7 @@
     "react-dom": "^16.13.1",
     "react-leaflet": "^2.6.3",
     "react-leaflet-markercluster": "2.0.0-rc3",
+    "react-responsive": "^8.0.3",
     "react-scripts": "3.4.1"
   },
   "scripts": {

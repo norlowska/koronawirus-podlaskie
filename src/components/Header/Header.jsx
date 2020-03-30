@@ -1,18 +1,15 @@
 import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
 import './Header.css';
 
 const Header = () => {
   return (
-    <header>
-      <Navbar variant='dark'>
-        <Navbar.Brand>Koronawirus w woj. podlaskim</Navbar.Brand>
-        <Nav className='nav-right ml-auto'>
-          <Nav.Link href='https://www.gov.pl/web/koronawirus'>Informacje i zalecenia</Nav.Link>
-        </Nav>
-      </Navbar>
-    </header>
+    <div className='app-bar d-flex justify-content-between'>
+      <div className='logo-container'>
+        <a href='/'>
+          <h3>Koronawirus w woj. podlaskim</h3>
+        </a>
+      </div>
+    </div>
   );
 };
 
