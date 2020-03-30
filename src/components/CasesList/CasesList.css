@@ -10,19 +10,9 @@
   }
 }
 
-.counter,
 .cases-update {
   margin-bottom: 20px;
-}
-
-.cases-update {
   color: gray;
-}
-
-.counter h3 {
-  font-size: 20px;
-  font-weight: normal;
-  display: flex;
 }
 
 .list {
@@ -49,8 +39,4 @@
   letter-spacing: 1px;
   font-size: 16px;
   padding: 4px 8px;
-}
-
-.counter .count-badge {
-  margin-right: 8px;
 }

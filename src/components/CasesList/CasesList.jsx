@@ -8,7 +8,7 @@ import './CasesList.css';
 
 const CasesList = () => {
   const [clicked, setClicked] = useState(false);
-  const { counties, sum, update, setSelectedCounty } = useData();
+  const { counties, update, setSelectedCounty } = useData();
 
   const handleMouseEnter = county => {
     setSelectedCounty(county);
@@ -27,14 +27,6 @@ const CasesList = () => {
 
   return counties ? (
     <Col md={4} className='cases-list'>
-      <div className='counter'>
-        <h3>
-          <Badge variant='secondary' className='count-badge'>
-            {sum}
-          </Badge>
-          zakażeń
-        </h3>
-      </div>
       <div className='cases-update'>
         <p>Ostatnia aktualizacja: {update ? Moment(update).format('DD.MM.YYYY HH:mm') : null}</p>
       </div>
