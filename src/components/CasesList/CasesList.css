@@ -4,15 +4,21 @@
   padding: 20px 30px;
 }
 
-@media (max-width: 767px) {
-  .cases-list {
-    height: 40%;
-  }
-}
-
 .cases-update {
   margin-bottom: 20px;
   color: gray;
+}
+
+@media (max-width: 767px) {
+  .cases-list {
+    height: auto;
+    overflow: auto;
+  }
+
+  .cases-update,
+  .cases-update p {
+    margin-bottom: 0;
+  }
 }
 
 .list {

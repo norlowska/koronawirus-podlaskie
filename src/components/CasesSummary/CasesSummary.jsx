@@ -9,12 +9,10 @@ const CasesSummary = () => {
   return (
     <div className='cases-summary'>
       <div className='active-cases'>
-        <h3>
-          <Badge variant='secondary' className='count-badge'>
-            {sum}
-          </Badge>
-          zakażeń
-        </h3>
+        <Badge variant='secondary' className='count-badge'>
+          {sum}
+        </Badge>
+        zakażeń
       </div>
     </div>
   );

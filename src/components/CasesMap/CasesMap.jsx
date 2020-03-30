@@ -1,9 +1,10 @@
 import React from 'react';
 import Col from 'react-bootstrap/Col';
+import MediaQuery from 'react-responsive';
 import { divIcon } from 'leaflet';
 import { Map as LeafletMap, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-import CasesSummary from '../CasesSummary/CasesSummary';
+import { CasesSummary } from '../index';
 import { useData } from '../../contexts/DataContext';
 import CountiesLayer from '../../powiaty-podlasie.json';
 import './CasesMap.css';
@@ -40,7 +41,9 @@ const CasesMap = () => {
 
   return countiesData ? (
     <Col md={8} className='cases-map px-0'>
-      <CasesSummary />
+      <MediaQuery minDeviceWidth={768}>
+        <CasesSummary />
+      </MediaQuery>
       <LeafletMap center={position} zoom={zoom} maxZoom={11} minZoom={7} onclick={handleClick}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

@@ -9,12 +9,6 @@
   width: 100%;
 }
 
-@media (max-width: 767px) {
-  .cases-map {
-    height: 60%;
-  }
-}
-
 .county-info-popup {
   font-family: 'Muli', sans-serif;
 }
