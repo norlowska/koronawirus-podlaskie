@@ -1,11 +1,11 @@
 {
-  "update": "2020-03-29T18:20:00.000Z",
-  "sum": 28,
+  "update": "2020-03-30T07:00:00.000Z",
+  "sum": 32,
   "counties": [
     {
       "code": "2062",
       "name": "powiat Łomża",
-      "confirmedCases": 2,
+      "confirmedCases": 3,
       "casesList": [],
       "location": [53.173119202640635, 22.04279731097456]
     },
@@ -61,7 +61,7 @@
     {
       "code": "2010",
       "name": "powiat siemiatycki",
-      "confirmedCases": 0,
+      "confirmedCases": 1,
       "casesList": [],
       "location": [52.496159531097106, 22.867089221967028]
     },
@@ -117,7 +117,7 @@
     {
       "code": "2061",
       "name": "powiat Białystok",
-      "confirmedCases": 7,
+      "confirmedCases": 9,
       "casesList": [],
       "location": [53.128646098440754, 23.161637092375315]
     }
