@@ -7,7 +7,8 @@ import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { CasesSummary } from '../index';
 import { useData } from '../../contexts/DataContext';
 import CountiesLayer from '../../powiaty-podlasie.json';
-import './CasesMap.css';
+import Colors from '../../styles/_colors.scss';
+import './CasesMap.scss';
 
 const createMarkerIcon = confirmedCases => {
   return divIcon({
@@ -53,7 +54,9 @@ const CasesMap = () => {
           data={CountiesLayer}
           style={feature => ({
             color: '#333',
-            fillColor: hasConfirmedCases(feature.properties.JPT_KOD_JE) ? '#ed1c24' : 'transparent',
+            fillColor: hasConfirmedCases(feature.properties.JPT_KOD_JE)
+              ? Colors.primary
+              : 'transparent',
             weight: 2,
             fillOpacity: 0.4,
           })}
@@ -71,9 +74,7 @@ const CasesMap = () => {
                   onMouseOut={() => setActiveCounty(null)}
                   onClick={() => setActiveCounty(county)}
                 ></Marker>
-              ) : (
-                undefined
-              )
+              ) : undefined
             )}
 
           {selectedCounty && (

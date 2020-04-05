@@ -1,4 +1,5 @@
 @import url('~react-leaflet-markercluster/dist/styles.min.css');
+@import '../../styles/_colors.scss';
 
 .cases-map {
   height: 100%;
@@ -17,7 +18,7 @@
   font-size: 18px;
   letter-spacing: 0.75px;
   font-weight: 600;
-  color: rgb(237, 28, 36);
+  color: $primary;
 }
 
 .county-info-popup p {
@@ -27,5 +28,5 @@
 }
 
 .popup-confirmed-cases {
-  color: rgb(237, 28, 36);
+  color: $primary;
 }

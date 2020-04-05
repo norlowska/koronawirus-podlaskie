@@ -1,13 +1,11 @@
-/* .App {
-  height: 100vh;
-} */
+@import 'styles/_colors.scss';
 
 .content {
   height: calc(100vh - 61px);
 }
 
 .circle-marker {
-  background: rgba(237, 28, 36, 0.85);
+  background: $primary-light;
   border-radius: 50%;
   color: white;
   font-size: 15px;
