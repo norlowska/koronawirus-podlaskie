@@ -5,11 +5,11 @@ import './CasesSummary.css';
 import Colors from '../../styles/_colors.scss';
 
 const CasesSummary = () => {
-  const { sum } = useData();
+  const { cases, deaths, cures } = useData();
 
   return (
     <div className='cases-summary'>
-      <Counter data={sum} label={'zakażeń'} color={Colors.primaryLight} />
+      <Counter data={cases.total} label={'zakażeń'} color={Colors.primaryLight} />
         <Badge variant='secondary' className='count-badge'>
           {sum}
         </Badge>

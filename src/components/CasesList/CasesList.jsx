@@ -34,7 +34,9 @@ const CasesList = () => {
         <CasesSummary />
       </MediaQuery>
       <div className='cases-update'>
-        <p>Ostatnia aktualizacja: {update ? Moment(update).format('DD.MM.YYYY HH:mm') : null}</p>
+        <p>
+          Ostatnia aktualizacja: {updatedAt ? Moment(updatedAt).format('DD.MM.YYYY HH:mm') : null}
+        </p>
       </div>
       <MediaQuery minDeviceWidth={768}>
         <div className='list'>
@@ -50,7 +52,7 @@ const CasesList = () => {
               >
                 <div className='list-item-title'>{county.name}</div>
                 <div className='counters'>
-                  <Counter data={county.confirmedCases} color={Colors.primaryLight} />
+                  <Counter data={county.cases.total} color={Colors.primaryLight} />
                 </Badge>
                 </div>
               </div>

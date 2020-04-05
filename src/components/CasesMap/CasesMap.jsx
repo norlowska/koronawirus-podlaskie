@@ -21,14 +21,21 @@ const createMarkerIcon = confirmedCases => {
 const CasesMap = () => {
   const position = [53.275, 23.114];
   const zoom = 8;
-  const { counties: countiesData, selectedCounty, setSelectedCounty } = useData();
+  const {
+    counties: countiesData,
+    cases,
+    cures,
+    deaths,
+    selectedCounty,
+    setSelectedCounty,
+  } = useData();
 
   const hasConfirmedCases = code => {
     if (!countiesData) {
       return false;
     }
     const county = countiesData.find(countyData => countyData.code === code.toString());
-    return county.confirmedCases > 0;
+    return county.cases.total > 0;
   };
 
   const handleClick = e => {
@@ -65,11 +72,11 @@ const CasesMap = () => {
         <MarkerClusterGroup maxClusterRadius={25}>
           {countiesData &&
             countiesData.map(county =>
-              county.confirmedCases > 0 ? (
+              county.cases.total > 0 ? (
                 <Marker
                   key={`marker-${county.code}`}
                   position={county.location}
-                  icon={createMarkerIcon(county.confirmedCases)}
+                  icon={createMarkerIcon(county.cases.total)}
                   onMouseOver={() => setActiveCounty(county)}
                   onMouseOut={() => setActiveCounty(null)}
                   onClick={() => setActiveCounty(county)}
@@ -87,7 +94,7 @@ const CasesMap = () => {
                 <h4>{selectedCounty.name}</h4>
                 <p>
                   Potwierdzone przypadki:{' '}
-                  <span className='popup-confirmed-cases'>{selectedCounty.confirmedCases}</span>
+                  <span className='popup-confirmed-cases'>{selectedCounty.cases.total}</span>
                 </p>
               </div>
             </Popup>
