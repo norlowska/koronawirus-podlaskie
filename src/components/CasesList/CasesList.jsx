@@ -4,8 +4,9 @@ import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 import Spinner from 'react-bootstrap/Spinner';
 import MediaQuery from 'react-responsive';
-import { CasesSummary } from '../index';
+import { CasesSummary, Counter } from '../index';
 import { useData } from '../../contexts/DataContext';
+import Colors from '../../styles/_colors.scss';
 import './CasesList.css';
 
 const CasesList = () => {
@@ -48,9 +49,10 @@ const CasesList = () => {
                 onClick={() => handleOnClick(county)}
               >
                 <div className='list-item-title'>{county.name}</div>
-                <Badge variant='secondary' className='count-badge'>
-                  {county.confirmedCases}
+                <div className='counters'>
+                  <Counter data={county.confirmedCases} color={Colors.primaryLight} />
                 </Badge>
+                </div>
               </div>
             ))}
         </div>
