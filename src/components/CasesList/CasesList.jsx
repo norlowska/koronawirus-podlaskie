@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Moment from 'moment';
 import Col from 'react-bootstrap/Col';
-import Badge from 'react-bootstrap/Badge';
 import Spinner from 'react-bootstrap/Spinner';
 import MediaQuery from 'react-responsive';
 import { CasesSummary, Counter } from '../index';
@@ -11,7 +10,7 @@ import './CasesList.css';
 
 const CasesList = () => {
   const [clicked, setClicked] = useState(false);
-  const { counties, update, setSelectedCounty } = useData();
+  const { counties, updatedAt, setSelectedCounty } = useData();
 
   const handleMouseEnter = county => {
     setSelectedCounty(county);
@@ -53,7 +52,8 @@ const CasesList = () => {
                 <div className='list-item-title'>{county.name}</div>
                 <div className='counters'>
                   <Counter data={county.cases.total} color={Colors.primaryLight} />
-                </Badge>
+                  <Counter data={county.deaths.total} color={Colors.negative} />
+                  <Counter data={county.cures.total} color={Colors.positive} />
                 </div>
               </div>
             ))}

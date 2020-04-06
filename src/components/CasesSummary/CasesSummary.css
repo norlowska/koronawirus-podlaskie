@@ -6,6 +6,11 @@
   font-size: 20px;
 }
 
+.cases-summary > div {
+  display: flex;
+  justify-content: space-between;
+}
+
 .cases-map .cases-summary {
   position: absolute;
   top: 30px;
@@ -17,9 +22,7 @@
   .cases-summary {
     padding: 0;
     box-shadow: none;
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 165px;
+    margin: 0 auto 18px auto;
   }
 }
