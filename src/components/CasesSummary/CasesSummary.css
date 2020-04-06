@@ -3,18 +3,12 @@
   border-radius: 0.25rem;
   padding: 10px 15px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-  width: auto;
   font-size: 20px;
-}
-
-.cases-summary > * {
-  width: auto;
 }
 
 .cases-summary > div {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
 }
 
 .cases-map .cases-summary {
@@ -24,14 +18,11 @@
   z-index: 500;
 }
 
-.count-badge {
-  margin-right: 8px;
-}
-
 @media (max-width: 768px) {
   .cases-summary {
     padding: 0;
     box-shadow: none;
-    margin-bottom: 15px;
+    width: 165px;
+    margin: 0 auto 18px auto;
   }
 }

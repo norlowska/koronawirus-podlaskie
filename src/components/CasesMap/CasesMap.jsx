@@ -4,10 +4,13 @@ import MediaQuery from 'react-responsive';
 import { divIcon } from 'leaflet';
 import { Map as LeafletMap, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
+// import { ArrowUp } from 'react-bootstrap-icons';
 import { CasesSummary } from '../index';
 import { useData } from '../../contexts/DataContext';
 import CountiesLayer from '../../powiaty-podlasie.json';
-import './CasesMap.css';
+import Colors from '../../styles/_colors.scss';
+import './CasesMap.scss';
+import GrowthIndicator from '../GrowthIndicator/GrowthIndicator';
 
 const createMarkerIcon = confirmedCases => {
   return divIcon({
@@ -27,7 +30,7 @@ const CasesMap = () => {
       return false;
     }
     const county = countiesData.find(countyData => countyData.code === code.toString());
-    return county.confirmedCases > 0;
+    return county.cases.total > 0;
   };
 
   const handleClick = e => {
@@ -53,7 +56,9 @@ const CasesMap = () => {
           data={CountiesLayer}
           style={feature => ({
             color: '#333',
-            fillColor: hasConfirmedCases(feature.properties.JPT_KOD_JE) ? '#ed1c24' : 'transparent',
+            fillColor: hasConfirmedCases(feature.properties.JPT_KOD_JE)
+              ? Colors.primary
+              : 'transparent',
             weight: 2,
             fillOpacity: 0.4,
           })}
@@ -62,18 +67,16 @@ const CasesMap = () => {
         <MarkerClusterGroup maxClusterRadius={25}>
           {countiesData &&
             countiesData.map(county =>
-              county.confirmedCases > 0 ? (
+              county.cases.total > 0 ? (
                 <Marker
                   key={`marker-${county.code}`}
                   position={county.location}
-                  icon={createMarkerIcon(county.confirmedCases)}
+                  icon={createMarkerIcon(county.cases.total)}
                   onMouseOver={() => setActiveCounty(county)}
                   onMouseOut={() => setActiveCounty(null)}
                   onClick={() => setActiveCounty(county)}
                 ></Marker>
-              ) : (
-                undefined
-              )
+              ) : undefined
             )}
 
           {selectedCounty && (
@@ -84,10 +87,30 @@ const CasesMap = () => {
             >
               <div>
                 <h4>{selectedCounty.name}</h4>
-                <p>
-                  Potwierdzone przypadki:{' '}
-                  <span className='popup-confirmed-cases'>{selectedCounty.confirmedCases}</span>
-                </p>
+                <div className='cases-info'>
+                  Potwierdzone przypadki:
+                  <span className='count'>{selectedCounty.cases.total}</span>
+                  {selectedCounty.cases.today > 0 && (
+                    <GrowthIndicator count={selectedCounty.cases.today} />
+                  )}
+                </div>
+                {selectedCounty.deaths.total > 0 && (
+                  <div className='deaths-info'>
+                    Przypadki śmiertelne:
+                    <span className='count'>{selectedCounty.deaths.total}</span>
+                    {selectedCounty.cures.today > 0 && (
+                      <GrowthIndicator count={selectedCounty.deaths.today} />
+                    )}
+                  </div>
+                )}
+                {selectedCounty.cures.total > 0 && (
+                  <div className='cures-info'>
+                    Wyleczeni: <span className='count'>{selectedCounty.cures.total}</span>
+                    {selectedCounty.cures.today > 0 && (
+                      <GrowthIndicator count={selectedCounty.cures.today} />
+                    )}
+                  </div>
+                )}
               </div>
             </Popup>
           )}

@@ -1,0 +1,53 @@
+@import url('~react-leaflet-markercluster/dist/styles.min.css');
+@import '../../styles/_colors.scss';
+
+.cases-map {
+  height: 100%;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+.county-info-popup {
+  font-family: 'Muli', sans-serif;
+}
+
+.county-info-popup h4 {
+  font-size: 18px;
+  letter-spacing: 0.75px;
+  font-weight: 600;
+  color: $primary;
+}
+
+.cases-info,
+.deaths-info,
+.cures-info {
+  font-size: 14px;
+  color: grey;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.cases-info .count {
+  color: $primary;
+}
+
+.deaths-info .count {
+  color: $negative;
+}
+
+.cures-info .count {
+  color: $positive;
+}
+
+.count {
+  margin-left: 5px;
+}
+
+.county-info-popup .growth-indicator {
+  font-size: 14px;
+  margin-left: 12px;
+}

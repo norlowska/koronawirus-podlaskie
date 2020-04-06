@@ -1,0 +1,12 @@
+.growth-indicator {
+  font-size: 16px;
+  margin-left: 10px;
+  color: gray;
+  display: inline-flex;
+  align-items: center;
+}
+
+.growth-indicator span {
+  vertical-align: middle;
+  margin-left: 2px;
+}

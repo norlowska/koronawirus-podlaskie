@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import './ButtonsGroup.css';
+import './ButtonsGroup.scss';
 
 const ButtonsGroup = () => {
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
