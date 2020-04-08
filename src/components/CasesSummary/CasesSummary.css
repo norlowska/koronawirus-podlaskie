@@ -25,6 +25,10 @@
   color: #444;
 }
 
+.daily-growth-wrapper:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .cases-summary {
     padding: 0;
