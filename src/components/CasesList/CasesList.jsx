@@ -28,8 +28,8 @@ const CasesList = () => {
   };
 
   return counties ? (
-    <Col md={4} className='cases-list'>
-      <MediaQuery maxDeviceWidth={768}>
+    <Col md={6} lg={5} xl={4} className='cases-list'>
+      <MediaQuery maxWidth={768}>
         <CasesSummary />
       </MediaQuery>
       <div className='cases-update'>
@@ -37,7 +37,7 @@ const CasesList = () => {
           Ostatnia aktualizacja: {updatedAt ? Moment(updatedAt).format('DD.MM.YYYY HH:mm') : null}
         </p>
       </div>
-      <MediaQuery minDeviceWidth={768}>
+      <MediaQuery minWidth={768}>
         <div className='list'>
           {counties &&
             counties.length &&

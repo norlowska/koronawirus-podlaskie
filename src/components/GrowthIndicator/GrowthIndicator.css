@@ -1,5 +1,5 @@
 .growth-indicator {
-  font-size: 16px;
+  font-size: 21px;
   margin-left: 10px;
   color: gray;
   display: inline-flex;
@@ -7,6 +7,6 @@
 }
 
 .growth-indicator span {
-  vertical-align: middle;
-  margin-left: 2px;
+  font-size: 1.1em;
+  margin: 0 1px;
 }
