@@ -9,6 +9,21 @@ const ButtonsGroup = () => {
   return (
     <div>
       <div className='buttons-container d-flex'>
+        <div
+          className='fb-share-button'
+          data-href='https://koronawirus-podlaskie.pl'
+          data-layout='button'
+          data-size='large'
+        >
+          <a
+            target='_blank'
+            rel='noopener noreferrer'
+            href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkoronawirus-podlaskie.pl&amp;src=sdkpreparse'
+            className='fb-xfbml-parse-ignore'
+          >
+            Udostępnij
+          </a>
+        </div>
         <Button onClick={() => setIsInfoModalOpen(true)}>O projekcie</Button>
         <a
           href='https://gov.pl/koronawirus'

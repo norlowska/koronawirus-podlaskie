@@ -3,16 +3,19 @@
 .buttons-container {
   position: fixed;
   z-index: 500;
-  bottom: 30px;
-  right: 20px;
+  bottom: 25px;
+  right: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 370px;
 }
 
 .buttons-container .btn {
   background-color: $primary;
   border-color: $primary;
   padding: 4px 10px;
-  font-size: 15px;
-  margin-right: 15px;
+  font-size: 14px;
 }
 
 .buttons-container .btn:hover,
@@ -39,7 +42,7 @@
   margin-left: 5px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .buttons-container {
     position: fixed;
     z-index: 500;
