@@ -98,7 +98,7 @@ const CasesMap = () => {
                   <div className='deaths-info'>
                     Przypadki śmiertelne:
                     <span className='count'>{selectedCounty.deaths.total}</span>
-                    {selectedCounty.cures.today > 0 && (
+                    {selectedCounty.deaths.today > 0 && (
                       <GrowthIndicator count={selectedCounty.deaths.today} />
                     )}
                   </div>
