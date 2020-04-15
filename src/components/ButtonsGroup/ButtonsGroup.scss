@@ -8,7 +8,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 370px;
+}
+
+.buttons-container > * {
+  margin-right: 10px;
 }
 
 .buttons-container .btn {
@@ -16,13 +19,19 @@
   border-color: $primary;
   padding: 4px 10px;
   font-size: 14px;
-}
 
-.buttons-container .btn:hover,
-.buttons-container .btn:focus {
-  background-color: $primary;
-  border-color: $primary;
-  outline: none;
+  &:hover,
+  &:focus,
+  &:active,
+  &:visited {
+    background-color: $primary !important;
+    border-color: $primary !important;
+    outline: none !important;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0.1rem 0.2rem rgba($primary, 0.5) !important;
+  }
 }
 
 .buttons-container .btn:last-child {

@@ -8,7 +8,7 @@ const ButtonsGroup = () => {
 
   return (
     <div>
-      <div className='buttons-container d-flex'>
+      <div className='buttons-container d-flex align-items-center justify-content-between'>
         <div
           className='fb-share-button'
           data-href='https://koronawirus-podlaskie.pl'
