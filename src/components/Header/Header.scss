@@ -1,0 +1,53 @@
+@import '../../styles/_colors.scss';
+
+.app-bar {
+  background-color: $primary;
+  color: #fff;
+  padding: 10px 15px;
+  box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.35);
+}
+
+.app-bar a {
+  color: #fff;
+}
+
+.app-bar a:hover {
+  text-decoration: none;
+}
+
+.app-bar a:active,
+.app-bar a:focus {
+  outline: none;
+}
+
+.logo-container h3 {
+  letter-spacing: 0.045em;
+  text-shadow: 1px 2px 2px #000;
+}
+
+.sheets-link a {
+  text-shadow: -1px -1px $primary, -1px 1px $primary, 1px -1px $primary, 1px 1px $primary;
+  background-size: 1px 1em;
+  box-shadow: inset 0 -0.115em #1b1b1b;
+  display: inline;
+  font-size: 1.1em;
+  color: #eaeaea;
+
+  &:hover {
+    box-shadow: inset 0 -0.115em mix($primary, white, 45%);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-container h3 {
+    font-size: 21px;
+  }
+
+  .sheets-link {
+    align-self: flex-end;
+
+    a {
+      font-size: 0.95em;
+    }
+  }
+}

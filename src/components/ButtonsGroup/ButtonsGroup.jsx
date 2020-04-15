@@ -45,9 +45,9 @@ const ButtonsGroup = () => {
         </Modal.Header>
         <Modal.Body>
           <p>
-            Dane wykorzystywane do utworzenia mapy pochodzą z wpisów Podlaskiego Urzędu
-            Wojewódzkiego na Facebooku. Pracujemy nad tym, by informacje na stronie były
-            aktualizowane na bieżąco.
+            Dane wykorzystywane do utworzenia mapy pochodzą z komunikatów Podlaskiego Urzędu
+            Wojewódzkiego udostępnianych na Facebooku. Pracujemy nad tym, by informacje na stronie
+            były aktualizowane na bieżąco.
           </p>
           {/* <p>Logo pochodzi z Icons8</p> */}
           <p>
