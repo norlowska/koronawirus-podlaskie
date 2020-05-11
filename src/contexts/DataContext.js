@@ -1,82 +1,70 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import { config } from '../firebase';
-import firebase from 'firebase/app';
-import 'firebase/database';
-import { groupBy, sumBy, orderBy } from 'lodash';
-import moment from 'moment';
+import { config } from '../config';
+import Airtable from 'airtable';
 
-firebase.initializeApp(config);
-
-const rootRef = firebase.database().ref('/');
-const updateRef = firebase.database().ref('/updatedAt');
+Airtable.configure({
+  endpointUrl: config.apiUrl,
+  apiKey: config.apiKey,
+});
+const base = Airtable.base(config.baseId);
 
 export const DataContext = createContext();
 
 export const DataProvider = props => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
   const [selectedCounty, setSelectedCounty] = useState(null);
 
   useEffect(() => {
-    // Listen to 'update' property changes
-    updateRef.on('value', snapshot => {
-      if (!data || data.updatedAt !== snapshot.val()) {
-        rootRef.on('value', snapshot => {
-          const newData = snapshot.val();
+    base('counties')
+      .select({
+        fields: [
+          'name',
+          'lon',
+          'lat',
+          'code',
+          'total cases',
+          'today cases',
+          'total cures',
+          'today cures',
+          'total deaths',
+          'today deaths',
+          'last update',
+        ],
+        sort: [{ field: 'last update', direction: 'desc' }],
+      })
+      .eachPage((records, fetchNextPage) => {
+        const counties = data && data.counties ? [...data.counties] : [];
+        let totalCases = !!data.cases ? data.cases.total : 0,
+          totalCures = !!data.cures ? data.cures.total : 0,
+          totalDeaths = !!data.deaths ? data.deaths.total : 0;
 
-          // Update data for each county
-          const casesByCounties = groupBy(newData.cases, 'county');
-          const deathsByCounties = groupBy(newData.deaths, 'county');
-          const curesByCounties = groupBy(newData.cures, 'county');
+        let todayCases = !!data.cases ? data.cases.today : 0,
+          todayCures = !!data.cures ? data.cures.today : 0,
+          todayDeaths = !!data.deaths ? data.deaths.today : 0;
 
-          let counties = [];
-          const today = moment().format('YYYY-MM-DD');
+        records.forEach(record => {
+          counties.push(record.fields);
 
-          for (let county of newData.counties) {
-            counties.push({
-              ...county,
-              cases: {
-                total: sumBy(casesByCounties[county.name], 'count'),
-                today: sumBy(groupBy(casesByCounties[county.name], 'date')[today], 'count'),
-              },
-              deaths: {
-                total: sumBy(deathsByCounties[county.name], 'count'),
-                today: sumBy(groupBy(deathsByCounties[county.name], 'date')[today], 'count'),
-              },
-              cures: {
-                total: sumBy(curesByCounties[county.name], 'count'),
-                today: sumBy(groupBy(curesByCounties[county.name], 'date')[today], 'count'),
-              },
-            });
-          }
+          totalCases += record.fields['total cases'];
+          totalCures += record.fields['total cures'];
+          totalDeaths += record.fields['total deaths'];
 
-          counties = orderBy(counties, county => county.cases.total, 'desc');
-
-          // Update overall data
-          const cases = {
-            total: sumBy(newData.cases, 'count'),
-            today: sumBy(groupBy(newData.cases, 'date')[today], 'count'),
-          };
-          const deaths = {
-            total: sumBy(newData.deaths, 'count'),
-            today: sumBy(groupBy(newData.deaths, 'date')[today], 'count'),
-          };
-          const cures = {
-            total: sumBy(newData.cures, 'count'),
-            today: sumBy(groupBy(newData.cures, 'date')[today], 'count'),
-          };
-
-          setData({
-            counties,
-            updatedAt: newData.updatedAt,
-            cases,
-            cures,
-            deaths,
-          });
+          todayCases += record.fields['today cases'];
+          todayCures += record.fields['today cures'];
+          todayDeaths += record.fields['today deaths'];
         });
 
-        updateRef.off('value');
-      }
-    });
+        setData({
+          counties: counties,
+          updatedAt: counties[0]['last update'],
+          cases: { total: totalCases, today: todayCases },
+          cures: { total: totalCures, today: todayCures },
+          deaths: { total: totalDeaths, today: todayDeaths },
+        });
+
+        fetchNextPage();
+      });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

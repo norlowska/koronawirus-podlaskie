@@ -51,9 +51,9 @@ const CasesList = () => {
               >
                 <div className='list-item-title'>{county.name}</div>
                 <div className='counters'>
-                  <Counter data={county.cases.total} color={Colors.primaryLight} />
-                  <Counter data={county.deaths.total} color={Colors.negative} />
-                  <Counter data={county.cures.total} color={Colors.positive} />
+                  <Counter data={county['total cases']} color={Colors.primaryLight} />
+                  <Counter data={county['total deaths']} color={Colors.negative} />
+                  <Counter data={county['total cures']} color={Colors.positive} />
                 </div>
               </div>
             ))}

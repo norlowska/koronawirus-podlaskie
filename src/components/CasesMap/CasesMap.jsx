@@ -30,12 +30,7 @@ const CasesMap = () => {
       return false;
     }
     const county = countiesData.find(countyData => countyData.code === code.toString());
-    return county.cases.total > 0;
-  };
-
-  const handleClick = e => {
-    const { lat, lng } = e.latlng;
-    console.log(lat + ', ' + lng);
+    return county['total cases'] > 0;
   };
 
   const setActiveCounty = county => {
@@ -47,7 +42,7 @@ const CasesMap = () => {
       <MediaQuery minWidth={768}>
         <CasesSummary />
       </MediaQuery>
-      <LeafletMap center={position} zoom={zoom} maxZoom={11} minZoom={7} onclick={handleClick}>
+      <LeafletMap center={position} zoom={zoom} maxZoom={11} minZoom={7}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
@@ -67,11 +62,11 @@ const CasesMap = () => {
         <MarkerClusterGroup maxClusterRadius={25}>
           {countiesData &&
             countiesData.map(county =>
-              county.cases.total > 0 ? (
+              hasConfirmedCases(county.code) ? (
                 <Marker
                   key={`marker-${county.code}`}
-                  position={county.location}
-                  icon={createMarkerIcon(county.cases.total)}
+                  position={[county.lat, county.lon]}
+                  icon={createMarkerIcon(county['total cases'])}
                   onMouseOver={() => setActiveCounty(county)}
                   onMouseOut={() => setActiveCounty(null)}
                   onClick={() => setActiveCounty(county)}
@@ -82,32 +77,32 @@ const CasesMap = () => {
           {selectedCounty && (
             <Popup
               className='county-info-popup'
-              position={selectedCounty.location}
+              position={[selectedCounty.lat, selectedCounty.lon]}
               onClose={() => setActiveCounty(null)}
             >
               <div>
                 <h4>{selectedCounty.name}</h4>
                 <div className='cases-info'>
                   Potwierdzone przypadki:
-                  <span className='count'>{selectedCounty.cases.total}</span>
-                  {selectedCounty.cases.today > 0 && (
-                    <GrowthIndicator count={selectedCounty.cases.today} />
+                  <span className='count'>{selectedCounty['total cases']}</span>
+                  {selectedCounty['today cases'] > 0 && (
+                    <GrowthIndicator count={selectedCounty['today cases']} />
                   )}
                 </div>
-                {selectedCounty.deaths.total > 0 && (
+                {selectedCounty['total deaths'] > 0 && (
                   <div className='deaths-info'>
                     Przypadki śmiertelne:
-                    <span className='count'>{selectedCounty.deaths.total}</span>
-                    {selectedCounty.deaths.today > 0 && (
-                      <GrowthIndicator count={selectedCounty.deaths.today} />
+                    <span className='count'>{selectedCounty['total deaths']}</span>
+                    {selectedCounty['today deaths'] > 0 && (
+                      <GrowthIndicator count={selectedCounty['today deaths']} />
                     )}
                   </div>
                 )}
-                {selectedCounty.cures.total > 0 && (
+                {selectedCounty['total cures'] > 0 && (
                   <div className='cures-info'>
-                    Wyleczeni: <span className='count'>{selectedCounty.cures.total}</span>
-                    {selectedCounty.cures.today > 0 && (
-                      <GrowthIndicator count={selectedCounty.cures.today} />
+                    Wyleczeni: <span className='count'>{selectedCounty['total cures']}</span>
+                    {selectedCounty['today cures'] > 0 && (
+                      <GrowthIndicator count={selectedCounty['today cures']} />
                     )}
                   </div>
                 )}
