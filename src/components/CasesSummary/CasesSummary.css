@@ -3,12 +3,17 @@
   border-radius: 0.25rem;
   padding: 10px 15px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-  font-size: 20px;
+  font-size: 17px;
 }
 
 .cases-summary > div {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.cases-summary > div:last-child {
+  margin-bottom: 0;
 }
 
 .cases-map .cases-summary {
@@ -29,10 +34,15 @@
   cursor: pointer;
 }
 
+.active-cases .counter-badge {
+  color: rgb(33, 37, 41);
+}
+
 @media (max-width: 768px) {
   .cases-summary {
     padding: 0;
     box-shadow: none;
     margin: 0 auto 18px auto;
+    font-size: 15px;
   }
 }

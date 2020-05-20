@@ -89,6 +89,14 @@ const CasesMap = () => {
                     <GrowthIndicator count={selectedCounty['today cases']} />
                   )}
                 </div>
+                {selectedCounty['total cures'] > 0 && (
+                  <div className='cures-info'>
+                    Wyleczeni: <span className='count'>{selectedCounty['total cures']}</span>
+                    {selectedCounty['today cures'] > 0 && (
+                      <GrowthIndicator count={selectedCounty['today cures']} />
+                    )}
+                  </div>
+                )}
                 {selectedCounty['total deaths'] > 0 && (
                   <div className='deaths-info'>
                     Przypadki śmiertelne:
@@ -98,11 +106,12 @@ const CasesMap = () => {
                     )}
                   </div>
                 )}
-                {selectedCounty['total cures'] > 0 && (
-                  <div className='cures-info'>
-                    Wyleczeni: <span className='count'>{selectedCounty['total cures']}</span>
-                    {selectedCounty['today cures'] > 0 && (
-                      <GrowthIndicator count={selectedCounty['today cures']} />
+                {selectedCounty['active cases'] > 0 && (
+                  <div className='active-info'>
+                    Aktywne przypadki:
+                    <span className='count'>{selectedCounty['active cases']}</span>
+                    {selectedCounty['active cases today change'] !== 0 && (
+                      <GrowthIndicator count={selectedCounty['active cases today change']} />
                     )}
                   </div>
                 )}

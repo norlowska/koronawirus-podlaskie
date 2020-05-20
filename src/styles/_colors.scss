@@ -2,10 +2,12 @@ $primary: rgb(237, 28, 36);
 $primary-light: rgba(237, 28, 36, 0.85);
 $positive: rgba(50, 173, 60, 0.85);
 $negative: rgba(25, 21, 21, 0.85);
+$active: #fcdf40;
 
 :export {
   primary: $primary;
   primaryLight: $primary-light;
   positive: $positive;
   negative: $negative;
+  active: $active;
 }

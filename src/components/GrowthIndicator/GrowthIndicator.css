@@ -1,12 +1,18 @@
 .growth-indicator {
-  font-size: 21px;
+  font-size: 19px;
   margin-left: 10px;
   color: gray;
   display: inline-flex;
   align-items: center;
 }
 
-.growth-indicator span {
+.growth-indicator svg {
   font-size: 1.1em;
   margin: 0 1px;
+}
+
+@media (max-width: 767px) {
+  .growth-indicator {
+    font-size: 17px;
+  }
 }

@@ -23,7 +23,8 @@
 
 .cases-info,
 .deaths-info,
-.cures-info {
+.cures-info,
+.active-info {
   font-size: 14px;
   color: grey;
   margin: 10px 0;
@@ -41,6 +42,10 @@
 
 .cures-info .count {
   color: $positive;
+}
+
+.active-info .count {
+  color: #f5b200;
 }
 
 .count {

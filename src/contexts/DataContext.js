@@ -28,6 +28,8 @@ export const DataProvider = props => {
           'today cures',
           'total deaths',
           'today deaths',
+          'active cases',
+          'active cases today change',
           'last update',
         ],
         sort: [{ field: 'last update', direction: 'desc' }],
@@ -36,11 +38,13 @@ export const DataProvider = props => {
         const counties = data && data.counties ? [...data.counties] : [];
         let totalCases = !!data.cases ? data.cases.total : 0,
           totalCures = !!data.cures ? data.cures.total : 0,
-          totalDeaths = !!data.deaths ? data.deaths.total : 0;
+          totalDeaths = !!data.deaths ? data.deaths.total : 0,
+          activeCases = !!data.active ? data.active.total : 0;
 
         let todayCases = !!data.cases ? data.cases.today : 0,
           todayCures = !!data.cures ? data.cures.today : 0,
-          todayDeaths = !!data.deaths ? data.deaths.today : 0;
+          todayDeaths = !!data.deaths ? data.deaths.today : 0,
+          todayActiveCases = !!data.active ? data.active.today : 0;
 
         records.forEach(record => {
           counties.push(record.fields);
@@ -48,10 +52,12 @@ export const DataProvider = props => {
           totalCases += record.fields['total cases'];
           totalCures += record.fields['total cures'];
           totalDeaths += record.fields['total deaths'];
+          activeCases += record.fields['active cases'];
 
           todayCases += record.fields['today cases'];
           todayCures += record.fields['today cures'];
           todayDeaths += record.fields['today deaths'];
+          todayActiveCases += record.fields['active cases today change'];
         });
 
         setData({
@@ -60,6 +66,7 @@ export const DataProvider = props => {
           cases: { total: totalCases, today: todayCases },
           cures: { total: totalCures, today: todayCures },
           deaths: { total: totalDeaths, today: todayDeaths },
+          activeCases: { total: activeCases, today: todayActiveCases },
         });
 
         fetchNextPage();
