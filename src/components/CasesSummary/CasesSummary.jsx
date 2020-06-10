@@ -1,6 +1,5 @@
 import React from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { IoMdHelp } from 'react-icons/io';
 import { useData } from '../../contexts/DataContext';
 import { Counter } from '../index';
 import './CasesSummary.css';

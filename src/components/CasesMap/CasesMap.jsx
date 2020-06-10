@@ -4,13 +4,11 @@ import MediaQuery from 'react-responsive';
 import { divIcon } from 'leaflet';
 import { Map as LeafletMap, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-// import { ArrowUp } from 'react-bootstrap-icons';
-import { CasesSummary } from '../index';
+import { CasesSummary, GrowthIndicator } from '../index';
 import { useData } from '../../contexts/DataContext';
 import CountiesLayer from '../../powiaty-podlasie.json';
 import Colors from '../../styles/_colors.scss';
 import './CasesMap.scss';
-import GrowthIndicator from '../GrowthIndicator/GrowthIndicator';
 
 const createMarkerIcon = confirmedCases => {
   return divIcon({
@@ -106,15 +104,13 @@ const CasesMap = () => {
                     )}
                   </div>
                 )}
-                {selectedCounty['active cases'] > 0 && (
-                  <div className='active-info'>
-                    Aktywne przypadki:
-                    <span className='count'>{selectedCounty['active cases']}</span>
-                    {selectedCounty['active cases today change'] !== 0 && (
-                      <GrowthIndicator count={selectedCounty['active cases today change']} />
-                    )}
-                  </div>
-                )}
+                <div className='active-info'>
+                  Aktywne przypadki:
+                  <span className='count'>{selectedCounty['active cases']}</span>
+                  {selectedCounty['active cases today change'] !== 0 && (
+                    <GrowthIndicator count={selectedCounty['active cases today change']} />
+                  )}
+                </div>
               </div>
             </Popup>
           )}
