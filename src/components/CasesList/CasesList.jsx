@@ -5,6 +5,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import MediaQuery from 'react-responsive';
 import { CasesSummary, Counter } from '../index';
 import { useData } from '../../contexts/DataContext';
+import compareValues from '../../helpers/compareValues';
 import Colors from '../../styles/_colors.scss';
 import './CasesList.css';
 
@@ -41,7 +42,7 @@ const CasesList = () => {
         <div className='list'>
           {counties &&
             counties.length &&
-            counties.map(county => (
+            counties.sort(compareValues('total cases', 'desc')).map(county => (
               <div
                 className='list-item d-flex justify-content-between'
                 key={county.code}
