@@ -15,7 +15,7 @@ const CasesSummary = () => {
       <div className='cases'>
         <Counter data={cases.total} label={'zakażeń'} color={Colors.primaryLight} />
         {cases.today > 0 && (
-          <OverlayTrigger overlay={showTooltip} trigger={'click'}>
+          <OverlayTrigger overlay={showTooltip}>
             <div className='daily-growth-wrapper'>
               <GrowthIndicator count={cases.today} />
             </div>
@@ -44,13 +44,11 @@ const CasesSummary = () => {
       </div>
       <div className='active-cases'>
         <Counter data={activeCases.total} label={'aktywnych przypadków'} color={Colors.active} />
-        {activeCases.today > 0 && (
-          <OverlayTrigger overlay={showTooltip}>
-            <div className='daily-growth-wrapper'>
-              <GrowthIndicator count={activeCases.today} />
-            </div>
-          </OverlayTrigger>
-        )}
+        <OverlayTrigger overlay={showTooltip}>
+          <div className='daily-growth-wrapper'>
+            <GrowthIndicator count={activeCases.today} />
+          </div>
+        </OverlayTrigger>
       </div>
     </div>
   );
