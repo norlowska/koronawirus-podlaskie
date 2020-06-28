@@ -7,7 +7,7 @@ import { CasesSummary, Counter } from '../index';
 import { useData } from '../../contexts/DataContext';
 import compareValues from '../../helpers/compareValues';
 import Colors from '../../styles/_colors.scss';
-import './CasesList.css';
+import './CasesList.scss';
 
 const CasesList = () => {
   const [clicked, setClicked] = useState(false);
