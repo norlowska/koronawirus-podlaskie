@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { renderToString } from 'react-dom/server';
 import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal';
 import MediaQuery from 'react-responsive';
 import { divIcon } from 'leaflet';
 import { FaAsterisk } from 'react-icons/fa';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Moment from 'moment';
 import { Map as LeafletMap, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
@@ -13,11 +15,19 @@ import CountiesLayer from '../../powiaty-podlasie.json';
 import Colors from '../../styles/_colors.scss';
 import './CasesMap.scss';
 
-const createMarkerIcon = confirmedCases => {
+const createMarkerIcon = (confirmedCases, activeCasesTodayChange) => {
   return divIcon({
-    html: `<div>${confirmedCases}</div>`,
+    html:
+      '<div>' +
+      confirmedCases +
+      (activeCasesTodayChange > 0
+        ? renderToString(<IoIosArrowUp className='arrow' />)
+        : activeCasesTodayChange < 0
+        ? renderToString(<IoIosArrowDown className='arrow' />)
+        : '') +
+      '</div>',
     className: 'circle-marker',
-    iconSize: [26, 26],
+    iconSize: [58, 30],
   });
 };
 
@@ -69,7 +79,10 @@ const CasesMap = () => {
                   <Marker
                     key={`marker-${county.code}`}
                     position={[county.lat, county.lon]}
-                    icon={createMarkerIcon(county['total cases'])}
+                    icon={createMarkerIcon(
+                      county['total cases'],
+                      county['active cases today change']
+                    )}
                     onMouseOver={() => setActiveCounty(county)}
                     onMouseLeave={() => setActiveCounty(null)}
                   ></Marker>
