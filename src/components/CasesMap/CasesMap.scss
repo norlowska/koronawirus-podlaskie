@@ -58,3 +58,46 @@
   margin-left: 12px;
   font-weight: 600;
 }
+
+.active-info .count {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.notes-indicator {
+  display: inline-block;
+  margin: 0 2px;
+  color: $negative;
+  height: 8px;
+}
+
+.notes-indicator:hover {
+  cursor: pointer;
+}
+
+.notes-county-name {
+  font-weight: bold;
+}
+
+.notes-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.notes-date {
+  margin: 0 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.notes-content {
+  border-left: 1px solid #dee2e6;
+  padding-left: 13px;
+  margin: 10px 0;
+}
+
+.notes-content a {
+  font-weight: bold;
+}

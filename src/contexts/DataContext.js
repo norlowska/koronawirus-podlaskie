@@ -31,6 +31,7 @@ export const DataProvider = props => {
           'active cases',
           'active cases today change',
           'last update',
+          'others',
         ],
         sort: [{ field: 'last update', direction: 'desc' }],
       })
@@ -47,8 +48,23 @@ export const DataProvider = props => {
           todayActiveCases = !!data.active ? data.active.today : 0;
 
         records.forEach(record => {
-          counties.push(record.fields);
+          const { cases, cures, deaths, ...formattedRecord } = record.fields;
+          formattedRecord.others = [];
 
+          if (record.fields.others !== undefined) {
+            record.fields.others.forEach(item => {
+              base('others').find(item, (err, otherRecord) => {
+                if (err) {
+                  console.error(err);
+                  return;
+                }
+                activeCases -= 1;
+                formattedRecord.others.push(otherRecord.fields);
+              });
+            });
+          }
+
+          counties.push(formattedRecord);
           totalCases += record.fields['total cases'];
           totalCures += record.fields['total cures'];
           totalDeaths += record.fields['total deaths'];
