@@ -5,8 +5,8 @@ import './GrowthIndicator.css';
 const GrowthIndicator = ({ count, ...props }) => {
   return (
     <div className='growth-indicator' {...props}>
-      {count > 0 ? <BsArrowUp /> : <BsArrowDown />}
-      {Math.abs(count)}
+      {count > 0 ? <BsArrowUp /> : count < 0 ? <BsArrowDown /> : null}
+      {count !== 0 ? Math.abs(count) : 0}
     </div>
   );
 };
