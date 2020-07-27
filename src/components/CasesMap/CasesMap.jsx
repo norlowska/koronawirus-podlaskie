@@ -85,6 +85,7 @@ const CasesMap = () => {
                     )}
                     onMouseOver={() => setActiveCounty(county)}
                     onMouseLeave={() => setActiveCounty(null)}
+                    onClick={() => setActiveCounty(county)}
                   ></Marker>
                 ) : undefined
               )}
